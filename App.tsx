@@ -50,14 +50,23 @@ import { Ionicons } from '@expo/vector-icons';
 function BottomMenu({ atual, onPress }: { atual: number; onPress: (i: number) => void }) {
   return (
     <View style={styles.menu}>
-      <TouchableOpacity onPress={() => onPress(1)}>
-        <Ionicons name="home" size={28} color={atual === 1 ? '#810AD0' : '#6F6F6F'} />
+      <TouchableOpacity 
+        style={[styles.menuButton, atual === 1 && styles.menuButtonActive]} 
+        onPress={() => onPress(1)}
+      >
+        <Ionicons name="home" size={24} color={atual === 1 ? '#8A05BE' : '#C7C7CC'} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress(2)}>
-        <Ionicons name="bar-chart" size={28} color={atual === 2 ? '#810AD0' : '#6F6F6F'} />
+      <TouchableOpacity 
+        style={[styles.menuButton, atual === 2 && styles.menuButtonActive]} 
+        onPress={() => onPress(2)}
+      >
+        <Ionicons name="bar-chart" size={24} color={atual === 2 ? '#8A05BE' : '#C7C7CC'} />
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => onPress(3)}>
-        <Ionicons name="newspaper" size={28} color={atual === 3 ? '#810AD0' : '#6F6F6F'} />
+      <TouchableOpacity 
+        style={[styles.menuButton, atual === 3 && styles.menuButtonActive]} 
+        onPress={() => onPress(3)}
+      >
+        <Ionicons name="newspaper" size={24} color={atual === 3 ? '#8A05BE' : '#C7C7CC'} />
       </TouchableOpacity>
     </View>
   );
@@ -67,9 +76,18 @@ const styles = StyleSheet.create({
   menu: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 12,
-    borderTopWidth: 1,
-    borderColor: '#F0F1F5',
-    backgroundColor: '#fff',
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    backgroundColor: '#FFFFFF',
+    borderTopWidth: 0.5,
+    borderTopColor: '#E5E5EA',
+  },
+  menuButton: {
+    padding: 8,
+    borderRadius: 20,
+  },
+  menuButtonActive: {
+    backgroundColor: '#F5F5F7',
   },
 });
